@@ -8,61 +8,83 @@ let currentChord = {};
 let currentScore = 0;
 let currentQnNum = 1;
 const stringNames = ["E", "A", "D", "G", "B", "E2"];
+let GSound = new Audio("sounds/G.wav");
+let AmSound = new Audio("sounds/Am.wav");
+let ASound = new Audio("sounds/A.wav");
+let BmSound = new Audio("sounds/Bm.wav");
+let BSound = new Audio("sounds/B.wav");
+let CSound = new Audio("sounds/C.wav");
+let DSound = new Audio("sounds/D.wav");
+let DmSound = new Audio("sounds/Dm.wav");
+let ESound = new Audio("sounds/E.wav");
+let EmSound = new Audio("sounds/Em.wav");
+let FSound = new Audio("sounds/F.wav");
 const chordCollection = [
   {
     name: "G",
     strings: ["", "", "O", "O", "O", ""],
     notes: ["E3", "A2", "E2-3"],
+    sound: GSound,
   },
   {
     name: "Am",
     strings: ["X", "O", "", "", "", "O"],
     notes: ["D2", "G2", "B1"],
+    sound: AmSound,
   },
   {
     name: "A",
     strings: ["X", "O", "", "", "", "O"],
     notes: ["D2", "G2", "B2"],
+    sound: ASound,
   },
   {
     name: "Bm",
     strings: ["X", "", "", "", "", ""],
     notes: ["A2", "D4", "G4", "B3", "E2-2"],
+    sound: BmSound,
   },
   {
     name: "B",
     strings: ["X", "", "", "", "", ""],
     notes: ["A2", "D4", "G4", "B4", "E2-2"],
+    sound: BSound,
   },
   {
     name: "C",
     strings: ["X", "", "", "O", "", "O"],
     notes: ["A3", "D2", "B1"],
+    sound: CSound,
   },
   {
     name: "D",
     strings: ["X", "X", "O", "", "", ""],
     notes: ["G2", "B3", "E2-2"],
+    sound: DSound,
   },
   {
     name: "Dm",
     strings: ["X", "X", "O", "", "", ""],
     notes: ["G2", "B3", "E2-1"],
+    sound: DmSound,
   },
   {
     name: "E",
     strings: ["O", "", "", "", "O", "O"],
     notes: ["A2", "D2", "G1"],
+    sound: ESound,
   },
   {
     name: "Em",
     strings: ["O", "", "", "O", "O", "O"],
     notes: ["A2", "D2"],
+    sound: EmSound,
   },
   {
     name: "F",
     strings: ["", "", "", "", "", ""],
     notes: ["E1", "A3", "D3", "G2", "B1", "E2-1"],
+    sound: FSound,
   },
 ];
 
@@ -162,7 +184,7 @@ level1Button.addEventListener("click", function (e) {
     showInputAreaDepending();
   }
 
-  document.querySelector(".wrong").innerHTML = "";
+  document.querySelector(".wrong-right-results").innerHTML = "";
   document.querySelector(".current-game-level").innerHTML =
     "Current Level: Level 1 (from the finger pattern, identify the correct chord.)";
   if (currMode === "practice-mode") {
@@ -185,7 +207,7 @@ level2Button.addEventListener("click", function (e) {
     showInputAreaDepending();
   }
 
-  document.querySelector(".wrong").innerHTML = "";
+  document.querySelector(".wrong-right-results").innerHTML = "";
   userAnsL2 = [];
   document.querySelector(".current-game-level").innerHTML =
     "Current Level: Level 2 (from the given chord, identify the correct finger pattern.)";
@@ -194,6 +216,12 @@ level2Button.addEventListener("click", function (e) {
   } else if (currMode === "challenge-mode") {
     runChallengeMode();
   }
+});
+
+const soundButton = document.querySelector("#sound");
+soundButton.addEventListener("click", function (e) {
+  e.preventDefault();
+  currentChord.sound.play();
 });
 
 ///////////fns
@@ -251,7 +279,8 @@ function checkAnsL1() {
       document.querySelector(`#${x}`).innerHTML = "";
     }
     document.querySelector("#text-input").value = "";
-    document.querySelector(".wrong").innerHTML = "correct! next one...";
+    document.querySelector(".wrong-right-results").innerHTML =
+      "correct! next one...";
     if (currMode === "challenge-mode") {
       currentScore += 1;
       document.querySelector(
@@ -271,7 +300,8 @@ function checkAnsL1() {
     }
   } else {
     if (currMode === "challenge-mode") {
-      document.querySelector(".wrong").innerHTML = "wrong! next qn!";
+      document.querySelector(".wrong-right-results").innerHTML =
+        "wrong! next qn!";
       for (x of currentChord.notes) {
         document.querySelector(`#${x}`).innerHTML = "";
       }
@@ -287,7 +317,7 @@ function checkAnsL1() {
         levelOneMode();
       }
     } else {
-      document.querySelector(".wrong").innerHTML =
+      document.querySelector(".wrong-right-results").innerHTML =
         "wrong! try again! ps: this is a caps sensitive game";
       document.querySelector("#text-input").value = "";
     }
@@ -326,7 +356,8 @@ function checkAnsL2() {
     }
   }
   if (xoCorrect && notesCorrect) {
-    document.querySelector(".wrong").innerHTML = "correct! next one...";
+    document.querySelector(".wrong-right-results").innerHTML =
+      "correct! next one...";
     if (currMode === "challenge-mode") {
       currentScore += 1;
       document.querySelector(
@@ -346,7 +377,8 @@ function checkAnsL2() {
     }
   } else {
     if (currMode === "challenge-mode") {
-      document.querySelector(".wrong").innerHTML = "wrong! next qn!";
+      document.querySelector(".wrong-right-results").innerHTML =
+        "wrong! next qn!";
       currentQnNum += 1;
       if (currentQnNum === 11) {
         showResults();
@@ -357,7 +389,7 @@ function checkAnsL2() {
         levelTwoMode();
       }
     } else {
-      document.querySelector(".wrong").innerHTML =
+      document.querySelector(".wrong-right-results").innerHTML =
         "wrong! try again! ps: did you indicate the X O of the strings?";
     }
   }
@@ -366,11 +398,11 @@ function checkAnsL2() {
 function showResults() {
   hideInputAreaDepending();
   if (currentScore === 10) {
-    document.querySelector(".wrong").innerHTML =
+    document.querySelector(".wrong-right-results").innerHTML =
       "Score: 10/10<br />WOW! Perfect score! you are indeed a guitar mastar!<br />use the buttons below to change level or go back to home...";
   } else {
     document.querySelector(
-      ".wrong"
+      ".wrong-right-results"
     ).innerHTML = `Score: ${currentScore}/10<br />not quite perfect yet... i think you need more practice...<br />use the buttons below to change level or go back to home...`;
   }
 }
@@ -388,7 +420,7 @@ function backToModeScreen() {
 }
 
 function hideInputArea() {
-  document.querySelector(".wrong").innerHTML = "";
+  document.querySelector(".wrong-right-results").innerHTML = "";
   document.querySelector(".score").innerHTML = "";
   document.querySelector(".qn-num").innerHTML = "";
   for (let button of document.querySelectorAll(".material-symbols-rounded")) {
@@ -411,7 +443,7 @@ function clearFretboard() {
 }
 
 function hideInputAreaDepending() {
-  document.querySelector(".wrong").innerHTML = "";
+  document.querySelector(".wrong-right-results").innerHTML = "";
   if (currLevel === 1) {
     document.querySelector("#text-input").value = "";
     document.querySelector("#text-input").id = "text-input-hidden";
@@ -425,7 +457,7 @@ function hideInputAreaDepending() {
 }
 
 function showInputAreaDepending() {
-  document.querySelector(".wrong").innerHTML = "";
+  document.querySelector(".wrong-right-results").innerHTML = "";
   if (currLevel === 1) {
     document.querySelector("#text-input-hidden").id = "text-input";
     document.querySelector("#level1-submit-button-hidden").id =
