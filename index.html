@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Rocker&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>guitar mastar</title>
+  </head>
+  <body>
+    <h1>guitar mastar</h1>
+    <p id="welcome">
+      welcome!<br />practice your chord identifying skills and become a guitar
+      mastar!<br />think you are a mastar? prove yourself in challenge
+      mode....<br /><br />
+      PICK A MODE BELOW... CHOOSE WISELY...
+    </p>
+    <div id="screen">
+      <div class="overlay-choose-mode-active" id="practice-mode">
+        <span id="practice-mode">practice mode:</span><br />unlimited tries till
+        you get it right!<br /><br />just as Rome wasn't built in a day, guitars
+        aren't mastared over night...
+      </div>
+      <div class="overlay-choose-mode-active" id="challenge-mode">
+        <span id="challenge-mode">challenge mode:</span><br />10 tries to prove
+        you are worthy!<br /><br />get all 10 right and be crowned GUITAR
+        MASTAR!
+      </div>
+      <div class="game-area">
+        <p class="current-game-mode"></p>
+        <p class="current-game-level">
+          Current Level: Level 1 (from the finger pattern, identify the correct
+          chord.)
+        </p>
+        <div class="interactive-area">
+          <div class="mute-or-open">
+            <div class="xo" id="mute-or-open-E"></div>
+            <div class="xo" id="mute-or-open-A"></div>
+            <div class="xo" id="mute-or-open-D"></div>
+            <div class="xo" id="mute-or-open-G"></div>
+            <div class="xo" id="mute-or-open-B"></div>
+            <div class="xo" id="mute-or-open-E2"></div>
+          </div>
+          <div class="guitar-area">
+            <div class="string" id="E-string">
+              <div class="fret" id="E6"></div>
+              <div class="fret" id="E5"></div>
+              <div class="fret" id="E4"></div>
+              <div class="fret" id="E3"></div>
+              <div class="fret" id="E2"></div>
+              <div class="fret" id="E1"></div>
+              <div class="guitar-head" id="guitar-head-E"></div>
+            </div>
+            <div class="string" id="A-string">
+              <div class="fret" id="A6"></div>
+              <div class="fret" id="A5"></div>
+              <div class="fret" id="A4"></div>
+              <div class="fret" id="A3"></div>
+              <div class="fret" id="A2"></div>
+              <div class="fret" id="A1"></div>
+              <div class="guitar-head" id="guitar-head-A"></div>
+            </div>
+            <div class="string" id="D-string">
+              <div class="fret" id="D6"></div>
+              <div class="fret" id="D5"></div>
+              <div class="fret" id="D4"></div>
+              <div class="fret" id="D3"></div>
+              <div class="fret" id="D2"></div>
+              <div class="fret" id="D1"></div>
+              <div class="guitar-head" id="guitar-head-D"></div>
+            </div>
+            <div class="string" id="G-string">
+              <div class="fret" id="G6"></div>
+              <div class="fret" id="G5"></div>
+              <div class="fret" id="G4"></div>
+              <div class="fret" id="G3"></div>
+              <div class="fret" id="G2"></div>
+              <div class="fret" id="G1"></div>
+              <div class="guitar-head" id="guitar-head-G"></div>
+            </div>
+            <div class="string" id="B-string">
+              <div class="fret" id="B6"></div>
+              <div class="fret" id="B5"></div>
+              <div class="fret" id="B4"></div>
+              <div class="fret" id="B3"></div>
+              <div class="fret" id="B2"></div>
+              <div class="fret" id="B1"></div>
+              <div class="guitar-head" id="guitar-head-B"></div>
+            </div>
+            <div class="string" id="E2-string">
+              <div class="fret" id="E2-6"></div>
+              <div class="fret" id="E2-5"></div>
+              <div class="fret" id="E2-4"></div>
+              <div class="fret" id="E2-3"></div>
+              <div class="fret" id="E2-2"></div>
+              <div class="fret" id="E2-1"></div>
+              <div class="guitar-head" id="guitar-head-E2"></div>
+            </div>
+          </div>
+          <div class="string-name">
+            <div class="string-name-text" id="string-name-E">E</div>
+            <div class="string-name-text" id="string-name-A">A</div>
+            <div class="string-name-text" id="string-name-D">D</div>
+            <div class="string-name-text" id="string-name-G">G</div>
+            <div class="string-name-text" id="string-name-B">B</div>
+            <div class="string-name-text" id="string-name-E2">E</div>
+          </div>
+        </div>
+        <div class="score-qnum">
+          <p class="score"></p>
+          <p class="qn-num"></p>
+        </div>
+      </div>
+    </div>
+    <div id="input-area">
+      <p class="wrong"></p>
+      <p class="identify-hidden"></p>
+      <input id="text-input-hidden" placeholder="Your answer" />
+
+      <input
+        type="submit"
+        class="level1-submit-button"
+        id="level1-submit-button-hidden"
+      />
+
+      <input
+        type="submit"
+        class="level2-submit-button"
+        id="level2-submit-button-hidden"
+      />
+    </div>
+    <div class="buttons-and-text" id="buttons-area">
+      <div class="material-symbols-rounded-hidden" id="level-1">counter_1</div>
+      <div class="material-symbols-rounded-hidden" id="level-2">counter_2</div>
+      <!-- <div class="material-symbols-rounded" id="level-3">counter_3</div> -->
+      <div class="material-symbols-rounded-hidden" id="choose-mode-button">
+        home
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

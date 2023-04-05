@@ -1,0 +1,244 @@
+h1 {
+  font-family: "Metal Mania", cursive;
+  text-align: center;
+  font-size: 3rem;
+  margin: 0 auto;
+}
+
+#welcome {
+  font-family: "New Rocker", cursive;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 1rem;
+}
+
+#screen {
+  display: grid;
+  height: 300px;
+  width: 600px;
+  grid-template-rows: 300px;
+  grid-template-columns: 300px 300px;
+  margin: 10px auto;
+  border: solid black 5px;
+  border-radius: 5px;
+}
+
+#practice-mode {
+  grid-area: 1/1/2/2;
+  z-index: 1;
+  background-color: white;
+}
+
+#challenge-mode {
+  grid-area: 1/2/2/3;
+  z-index: 1;
+  background-color: black;
+  color: white;
+}
+
+#practice-mode-choosing-inactive {
+  grid-area: 1/1/1/1;
+  z-index: -1;
+}
+
+#challenge-mode-choosing-inactive {
+  grid-area: 1/1/1/1;
+  z-index: -1;
+}
+
+.overlay-choose-mode-active {
+  font-family: "New Rocker", cursive;
+  text-align: center;
+  font-size: 1.2em;
+  padding: 25% 0;
+}
+
+.overlay-choose-mode-active:hover {
+  cursor: pointer;
+}
+
+span {
+  font-family: "Metal Mania", cursive;
+  font-size: 2em;
+}
+
+#input-area {
+  text-align: center;
+  margin: 20px;
+}
+
+.wrong {
+  font-family: "New Rocker", cursive;
+}
+
+#text-input-hidden {
+  font-size: 0px;
+  border-width: 0px;
+}
+
+.identify-hidden {
+  font-size: 0px;
+}
+
+#text-input {
+  padding: 1%;
+  font-size: 1rem;
+  border: solid black 3px;
+  border-radius: 5px;
+  font-family: "New Rocker", cursive;
+}
+
+.identify {
+  font-family: "New Rocker", cursive;
+  font-size: 1.5rem;
+}
+
+#level1-submit-button-hidden {
+  font-size: 0px;
+  border-width: 0px;
+  padding: 0;
+}
+
+#level1-submit-button {
+  padding: 1%;
+  font-size: 1rem;
+  border: solid black 3px;
+  border-radius: 5px;
+  font-family: "New Rocker", cursive;
+}
+
+#level1-submit-button:hover {
+  cursor: pointer;
+}
+
+#level2-submit-button-hidden {
+  font-size: 0px;
+  border-width: 0px;
+  padding: 0;
+}
+
+#level2-submit-button {
+  padding: 1%;
+  font-size: 1rem;
+  border: solid black 3px;
+  border-radius: 5px;
+  font-family: "New Rocker", cursive;
+}
+
+#level2-submit-button:hover {
+  cursor: pointer;
+}
+
+#buttons-area {
+  text-align: center;
+}
+
+.material-symbols-rounded-hidden {
+  font-size: 0px;
+}
+
+.material-symbols-rounded {
+  font-variation-settings: "FILL" 1, "wght" 700, "GRAD" 0, "opsz" 48;
+  font-size: 3rem;
+  padding-left: 20px;
+}
+
+.game-area {
+  grid-area: 1/1/2/3;
+  background-color: white;
+}
+
+.current-game-mode {
+  font-family: "New Rocker", cursive;
+  margin: 0 auto;
+  padding: 2px 10px 5px 10px;
+}
+
+.current-game-level {
+  font-family: "New Rocker", cursive;
+  margin: 0 auto;
+  padding: 2px 10px 15px 10px;
+}
+
+.score {
+  font-family: "New Rocker", cursive;
+  font-size: 1.5rem;
+  display: inline-block;
+  padding-left: 10px;
+}
+
+.qn-num {
+  font-family: "New Rocker", cursive;
+  font-size: 1.5rem;
+  display: inline-block;
+  float: right;
+  padding-right: 10px;
+}
+
+.interactive-area {
+  display: grid;
+  height: 180px;
+  width: 500px;
+  grid-template-columns: 40px 440px 20px;
+  /* margin: 60px auto; */
+  margin: 0 auto;
+}
+
+.mute-or-open {
+  display: grid;
+  grid-template-rows: repeat(6, 30px);
+  font-family: "Metal Mania", cursive;
+}
+
+.mute-or-open:hover {
+  cursor: pointer;
+}
+
+.xo {
+  text-align: center;
+  padding: 7% 0;
+  font-size: 1.5rem;
+}
+
+.guitar-area {
+  display: grid;
+  grid-template-rows: repeat(6, 30px);
+  background-image: url("bg.png");
+  background-size: cover;
+}
+
+.string {
+  display: grid;
+  grid-template-columns: 60px 60px 60px 60px 60px 60px 80px;
+}
+
+.string-name {
+  display: grid;
+  grid-template-rows: repeat(6, 30px);
+  font-family: "Metal Mania", cursive;
+  text-align: center;
+}
+
+.string-name-text {
+  padding: 40% 0;
+}
+
+/* .fret:hover {
+  cursor: pointer;
+} */
+
+.material-symbols-rounded:hover {
+  cursor: pointer;
+}
+
+.fret {
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.fret-selected {
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 1.5em;
+  text-align: center;
+}
